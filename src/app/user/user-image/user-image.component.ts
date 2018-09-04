@@ -1,5 +1,9 @@
 import { User } from './../../model/user';
-import { Component, Input } from '@angular/core';
+import { Component, 
+  Input, 
+  Output, 
+  EventEmitter } from '@angular/core';
+
 
 @Component({
   selector: 'app-user-image',
@@ -9,7 +13,9 @@ import { Component, Input } from '@angular/core';
 export class UserImageComponent{
   @Input('user') user : User;
 
-  moreInfo(user : User){
-      alert(`${user.firstName} is working with ${user.company}`);
+  @Output('childEvent') childEvent = new EventEmitter<User>();
+
+  onBtnClick(user : User){
+    this.childEvent.emit(user);
   }
 }

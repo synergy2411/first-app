@@ -1,5 +1,19 @@
 import { User } from './../model/user';
-import { Component, ViewEncapsulation } from '@angular/core';
+import { USER_DATA } from '../data/mocks';
+
+import { Component, 
+    ViewEncapsulation,
+    OnInit, 
+    OnChanges,
+    DoCheck,
+    AfterContentInit,
+    AfterContentChecked,
+    AfterViewInit,
+    AfterViewChecked,
+    OnDestroy,
+    Input,
+    SimpleChanges,
+    ChangeDetectionStrategy} from '@angular/core';
 
 @Component({
     selector : 'app-user',
@@ -14,19 +28,34 @@ import { Component, ViewEncapsulation } from '@angular/core';
     //     }
     // `],
     styleUrls : [`./user.component.css`],
-    encapsulation : ViewEncapsulation.Emulated
+    encapsulation : ViewEncapsulation.Emulated,
+    changeDetection : ChangeDetectionStrategy.Default
 })  
-export class UserComponent{
+export class UserComponent implements OnInit, 
+    OnChanges, DoCheck, AfterContentInit, AfterContentChecked,
+    AfterViewInit, AfterViewChecked, OnDestroy {
+
+    user : User;
+
+    @Input('title') title : string;
+
+    moreInfo(user : User){
+        alert(`${user.firstName} is working with ${user.company}`);
+    }
+    constructor(){console.log("Constructor") }
+    ngOnInit(){
+        console.log("ngOnInit");
+        this.user = USER_DATA;
+    }
+    ngOnChanges(changes : SimpleChanges){ 
+        console.log("ngOnChanges", changes); 
+    }
+    ngDoCheck() {console.log("ngDoCheck");}
+    ngAfterContentInit() {console.log("ngAfterContentInit");}
+    ngAfterContentChecked(){console.log("ngAfterContentChecked");}
+    ngAfterViewInit() {console.log("ngAfterViewInit");}
+    ngAfterViewChecked() {console.log("ngAfterViewChecked");}
+    ngOnDestroy(){console.log("ngOnDestroy");}
 
     
-    user : User = {
-        firstName : "Bill",
-        lastName : "Gates",
-        dob : new Date("Dec 21, 1965"),
-        income : 50000,
-        isWorking  : true,
-        company : "Microsoft",
-        image : "assets/images/bill.jpg",
-        vote : 120
-    }
 }
