@@ -9,4 +9,12 @@ import { Component, OnInit, Input } from '@angular/core';
 export class UserInfoComponent{
   @Input('user') user : User;
 
+  myClasses = {
+    feature : false, 
+    underline : true
+  }
+
+  defaultColor = "blue";
+  initialColor = "green";
+
 }
