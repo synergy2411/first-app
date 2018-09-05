@@ -1,7 +1,8 @@
-
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { UserComponent } from './user/user.component';
@@ -14,6 +15,8 @@ import { CountryCodePipe } from './pipes/countrycode.pipe';
 import { FilterPipe } from './pipes/filter.pipe';
 import { SigninComponent } from './auth/signin/signin.component';
 import { RegisterComponent } from './auth/register/register.component';
+import { DataService } from './services/data.service';
+import { ObservableDemoComponent } from './observable-demo/observable-demo.component';
 
 @NgModule({
   declarations: [
@@ -27,14 +30,17 @@ import { RegisterComponent } from './auth/register/register.component';
     CountryCodePipe,
     FilterPipe,
     SigninComponent,
-    RegisterComponent
+    RegisterComponent,
+    ObservableDemoComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [ DataService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

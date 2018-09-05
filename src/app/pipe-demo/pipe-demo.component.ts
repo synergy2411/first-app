@@ -1,9 +1,11 @@
+import { DataService } from './../services/data.service';
 import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-pipe-demo',
   templateUrl: './pipe-demo.component.html',
-  styleUrls: ['./pipe-demo.component.css']
+  styleUrls: ['./pipe-demo.component.css'],
+  providers : [DataService]
 })
 export class PipeDemoComponent {
   filteredStatus = "";
@@ -32,7 +34,10 @@ export class PipeDemoComponent {
   contact_no: number = 987654321;
   data: Promise<string>;
   msg: any = "Waiting...";
-  constructor() {
+  increase(){
+    this.dataService.counter++;
+  }
+  constructor(public dataService : DataService) {
     this.data = new Promise((resolve, reject) => {
       setTimeout(() => {
         resolve("Here the data comes...");

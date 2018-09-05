@@ -1,5 +1,6 @@
+import { DataService } from './../services/data.service';
 import { User } from './../model/user';
-import { USER_DATA } from '../data/mocks';
+// import { USER_DATA } from '../data/mocks';
 
 import {
     Component,
@@ -45,9 +46,24 @@ export class UserComponent
         alert(`${user.firstName} is working with ${user.company}`);
     }
 
+    constructor(private dataService : DataService){}
+    increase(){
+        this.dataService.counter++;
+    }
     ngOnInit() {
         //console.log("ngOnInit");
-        this.users = USER_DATA;
+        // this.users = USER_DATA;
+        // this.users = this.dataService.getUserData();
+        this.dataService.getHttpClientUserData();
+        this.dataService.getHttpUserData()
+            .subscribe(
+                (users)=>{
+                console.log(users);
+                this.users = users;
+                },
+                (err)=>console.log(err),
+                ()=>console.log("FINISHED!")
+        );
     }
 
     // ngOnChanges(changes: SimpleChanges) {
