@@ -9,6 +9,9 @@ import { UserImageComponent } from './user/user-image/user-image.component';
 import { UserInfoComponent } from './user/user-info/user-info.component';
 import { HighlightDirective } from './directives/highlight.directive';
 import { UnlessDirective } from './directives/unless.directive';
+import { PipeDemoComponent } from './pipe-demo/pipe-demo.component';
+import { CountryCodePipe } from './pipes/countrycode.pipe';
+import { FilterPipe } from './pipes/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -17,7 +20,10 @@ import { UnlessDirective } from './directives/unless.directive';
     UserImageComponent,
     UserInfoComponent,
     HighlightDirective,
-    UnlessDirective
+    UnlessDirective,
+    PipeDemoComponent,
+    CountryCodePipe,
+    FilterPipe
   ],
   imports: [
     BrowserModule,

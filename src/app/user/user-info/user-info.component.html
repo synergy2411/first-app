@@ -1,12 +1,17 @@
 <h1 app-highlight 
     [defaultColor]="defaultColor"
-    [initialColor]="initialColor">{{ user.firstName }} {{ user.lastName}}</h1>
+    [initialColor]="initialColor">{{ user.firstName | uppercase }} {{ user.lastName | uppercase}}</h1>
 
-<p *ngIf="user.isWorking==true; else ElseTemplate">Income  : <span [innerHTML]="user.income"></span></p>
-
-<p *appUnless="user.isWorking">
-    App Unless Income  : <span [innerHTML]="user.income"></span>
+<p *ngIf="user.isWorking==true; else ElseTemplate">
+    Income  : <span [innerHTML]="user.income | currency : 'INR'"></span>
 </p>
+
+<!-- 
+    Added Custom Structural Directive
+    <p *appUnless="user.isWorking">
+    App Unless Income  : <span [innerHTML]="user.income"></span>
+</p> -->
+
 <ng-template #ElseTemplate>
     <p>{{ user.firstName }} is not working now!</p>
 </ng-template>
@@ -18,7 +23,9 @@
 <p>Income  : <span [innerHTML]="user.income"></span></p>
 </ng-template> -->
 
-<p [ngClass]="myClasses">Date of Birth : {{ user.dob }}</p>
+<p [ngClass]="myClasses">
+    Date of Birth : {{ user.dob | date :  'MM/dd/yyyy'}}
+</p>
 <em>
     Total Votes : {{ user.vote }}
     <input type="number" 
