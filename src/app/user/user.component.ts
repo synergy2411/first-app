@@ -33,7 +33,9 @@ import {
     encapsulation: ViewEncapsulation.Emulated,
     changeDetection: ChangeDetectionStrategy.Default
 })
-export class UserComponent implements OnInit, OnChanges, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy {
+export class UserComponent 
+    //implements OnInit, OnChanges, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy 
+    {
 
     users : User[];
 
@@ -44,18 +46,18 @@ export class UserComponent implements OnInit, OnChanges, DoCheck, AfterContentIn
     }
 
     ngOnInit() {
-        console.log("ngOnInit");
+        //console.log("ngOnInit");
         this.users = USER_DATA;
     }
 
-    ngOnChanges(changes: SimpleChanges) {
-        console.log("ngOnChanges", changes);
-    }
-    ngDoCheck() { console.log("ngDoCheck"); }
-    ngAfterContentInit() { console.log("ngAfterContentInit"); }
-    ngAfterContentChecked() { console.log("ngAfterContentChecked"); }
-    ngAfterViewInit() { console.log("ngAfterViewInit"); }
-    ngAfterViewChecked() { console.log("ngAfterViewChecked"); }
-    ngOnDestroy() { console.log("ngOnDestroy"); }
-    constructor() { console.log("Constructor") }
+    // ngOnChanges(changes: SimpleChanges) {
+    //     console.log("ngOnChanges", changes);
+    // }
+    // ngDoCheck() { console.log("ngDoCheck"); }
+    // ngAfterContentInit() { console.log("ngAfterContentInit"); }
+    // ngAfterContentChecked() { console.log("ngAfterContentChecked"); }
+    // ngAfterViewInit() { console.log("ngAfterViewInit"); }
+    // ngAfterViewChecked() { console.log("ngAfterViewChecked"); }
+    // ngOnDestroy() { console.log("ngOnDestroy"); }
+    // constructor() { console.log("Constructor") }
 }
