@@ -22,6 +22,10 @@ import { AuthService } from './services/auth.service';
 import { AuthInterceptorService } from './services/auth-interceptor.service';
 import { LoggerInterceptorService } from './services/logger-interceptor.service';
 import { APP_ROUTES } from './app.routes';
+import { ProductComponent } from './product/product.component';
+import { OverviewComponent } from './product/overview/overview.component';
+import { SpecificationComponent } from './product/specification/specification.component';
+import { LoginGaurdService } from './services/login-gaurd.service';
 
 
 @NgModule({
@@ -37,7 +41,10 @@ import { APP_ROUTES } from './app.routes';
     FilterPipe,
     SigninComponent,
     RegisterComponent,
-    ObservableDemoComponent
+    ObservableDemoComponent,
+    ProductComponent,
+    OverviewComponent,
+    SpecificationComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +54,7 @@ import { APP_ROUTES } from './app.routes';
     HttpClientModule,
     RouterModule.forRoot(APP_ROUTES)
   ],
-  providers: [ DataService, AuthService, {
+  providers: [ DataService, AuthService, LoginGaurdService, {
     provide : HTTP_INTERCEPTORS,
     useClass : AuthInterceptorService,
     multi : true

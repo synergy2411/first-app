@@ -3,15 +3,25 @@
     <li><a [routerLink]="['signin']">Login</a></li>
     <li><a [routerLink]="['pipe']">Pipe Demo</a></li>
     <li><a [routerLink]="['obs']">Observable</a></li>
-    <li><a [routerLink]="['register']">Register</a></li>
+    <li *ngIf="!authService.isAuthenticated()">
+      <a [routerLink]="['register']">Register</a>
+    </li>
     <li><a [routerLink]="['users']">Users</a></li>
+    <li><a [routerLink]="['product']">Product</a></li>
   </ul>
 
 </div>
 
 
-<div class = "container">
-  <h1>Hello Angular!</h1>
+<div class="container">
+  <h1>
+    First App 
+    <button 
+      (click)="onLogout()" 
+      class="btn btn-sm btn-danger"
+      *ngIf="authService.isAuthenticated()">
+        Logout</button>
+  </h1>
 
   <hr>
 

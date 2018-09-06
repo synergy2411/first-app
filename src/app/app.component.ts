@@ -1,3 +1,4 @@
+import { AuthService } from './services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import * as firebase from 'firebase';
 
@@ -14,5 +15,11 @@ export class AppComponent implements OnInit {
       apiKey: "AIzaSyBYv6FyWdjI2iN1UnOq5eOU-7a2Px8fGg8",
       authDomain: "sg-app-4f104.firebaseapp.com"
     });
+  }
+
+  constructor(public authService : AuthService){}
+
+  onLogout(){
+    this.authService.logout();
   }
 }

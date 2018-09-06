@@ -1,0 +1,15 @@
+
+<div class="container">
+  <h2>Product component loaded!</h2>
+  <ul class="list-unstyled">
+    <li><a [routerLink]="['overview', productData.id]" 
+        [queryParams]="{'name' : productData.name}">Overview</a></li>
+    <li><a [routerLink]="['spec']">Specification</a></li>
+  </ul>
+
+  <hr>
+  <a [routerLink]="['signin']"> Login </a> <br>
+  <button class="badge" (click)="onLogin()">Login</button>
+  <br>
+  <router-outlet></router-outlet>
+</div>
