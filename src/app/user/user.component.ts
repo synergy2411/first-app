@@ -54,6 +54,7 @@ export class UserComponent
         //console.log("ngOnInit");
         // this.users = USER_DATA;
         // this.users = this.dataService.getUserData();
+        this.dataService.getDataFromAPI();
         this.dataService.getHttpClientUserData();
         this.dataService.getHttpUserData()
             .subscribe(

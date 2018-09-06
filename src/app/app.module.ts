@@ -1,3 +1,4 @@
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -17,6 +18,7 @@ import { SigninComponent } from './auth/signin/signin.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { DataService } from './services/data.service';
 import { ObservableDemoComponent } from './observable-demo/observable-demo.component';
+import { AuthService } from './services/auth.service';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,7 @@ import { ObservableDemoComponent } from './observable-demo/observable-demo.compo
     HttpModule,
     HttpClientModule
   ],
-  providers: [ DataService ],
+  providers: [ DataService, AuthService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

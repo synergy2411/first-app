@@ -34,4 +34,13 @@ export class DataService{
         //     .pipe(map(response=><User[]>response.json().userdata))
             
     }
+
+
+    // API HIT
+    getDataFromAPI(){
+        this.httpClient.get("https://sg-app-4f104.firebaseio.com/userdata.json")
+            .subscribe(users=>console.log(users));
+    }
 }
+
+// npm i firebase --save
