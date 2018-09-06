@@ -46,7 +46,7 @@ export class UserComponent
         alert(`${user.firstName} is working with ${user.company}`);
     }
 
-    constructor(private dataService : DataService){}
+    constructor(public dataService : DataService){}
     increase(){
         this.dataService.counter++;
     }
