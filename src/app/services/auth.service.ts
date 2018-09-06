@@ -13,10 +13,10 @@ export class AuthService {
   signin(username : string, password : string){
     firebase.auth()
       .signInWithEmailAndPassword(username, password)
-      .then((repsonse)=>{
+      .then(repsonse=>{
         console.log("Succeefully Logged in!", repsonse);
         firebase.auth().currentUser.getIdToken()
-          .then(token=>{
+          .then((token)=>{
             console.log(token);
             this.token = token;
             sessionStorage.setItem("token", token);

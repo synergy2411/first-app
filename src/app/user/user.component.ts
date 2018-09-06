@@ -40,7 +40,7 @@ export class UserComponent
 
     users : User[];
 
-    @Input('title') title: string;
+    // @Input('title') title: string;
 
     moreInfo(user: User) {
         alert(`${user.firstName} is working with ${user.company}`);

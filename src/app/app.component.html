@@ -1,14 +1,32 @@
+<div class="container">
+  <ul class="list-unstyled nav navbar-nav navbar-default">
+    <li><a [routerLink]="['signin']">Login</a></li>
+    <li><a [routerLink]="['pipe']">Pipe Demo</a></li>
+    <li><a [routerLink]="['obs']">Observable</a></li>
+    <li><a [routerLink]="['register']">Register</a></li>
+    <li><a [routerLink]="['users']">Users</a></li>
+  </ul>
+
+</div>
+
+
 <div class = "container">
   <h1>Hello Angular!</h1>
 
   <hr>
 
   <!-- <app-observable-demo></app-observable-demo> -->
-  <app-register></app-register>
-  <app-signin></app-signin>
+  <!-- 
+    <app-register></app-register>
+  <app-signin></app-signin> 
+-->
 
   <!-- <app-pipe-demo></app-pipe-demo> -->
+
+
+  <router-outlet></router-outlet>
+
   <hr>
   <input type="text" [(ngModel)]="title">
-  <app-user [title]="title"></app-user>
+  <!-- <app-user [title]="title"></app-user> -->
 </div>
