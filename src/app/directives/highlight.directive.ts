@@ -23,7 +23,7 @@ export class HighlightDirective {
     }
 
     constructor(private elementRef : ElementRef){
-        console.log(this.initialColor); //?
+        //console.log(this.initialColor); //?
         // console.log(this.elementRef.nativeElement);
     }
 }

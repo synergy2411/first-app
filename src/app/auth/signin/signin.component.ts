@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
+import { DataService } from '../../services/data.service';
 
 @Component({
   selector: 'app-signin',
@@ -9,18 +10,19 @@ import { AuthService } from '../../services/auth.service';
 })
 export class SigninComponent {
 
-  constructor(private authService : AuthService){}
+  constructor(private authService : AuthService,
+              private dataService : DataService){}
   signIn(f : NgForm){
     console.log("Username : " + f.value.username + 
               "\nPassword : " + f.value.password);
     this.authService.signin(
       f.value.username, 
       f.value.password
-    ).then((repsonse)=>{
-      console.log("Succeefully Logged in!", repsonse);
-    }).catch(err=>{
-      console.log("Problem Occured.", err)
-    })
+    )
+  }
+
+  getData(){
+    this.dataService.getDataFromAPIwithToken();
   }
 
 }

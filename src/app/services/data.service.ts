@@ -1,3 +1,4 @@
+import { AuthService } from './auth.service';
 import { Http } from '@angular/http';
 import { HttpClient } from '@angular/common/http'; 
 import { Injectable, NgZone } from "@angular/core";
@@ -12,7 +13,8 @@ export class DataService{
     counter : number = 0;
     constructor(private http : Http,
                 private httpClient : HttpClient,
-                private zone : NgZone){ }
+                private zone : NgZone,
+                private authService : AuthService){ }
     getUserData() : User[] {
         return USER_DATA;
     }
@@ -22,7 +24,9 @@ export class DataService{
             observe : 'response',
             responseType : "text"
         })
-            .subscribe(xyz => console.log(xyz));
+            .subscribe(xyz => {
+                // console.log(xyz);
+            });
 
     }
 
@@ -40,6 +44,15 @@ export class DataService{
     getDataFromAPI(){
         this.httpClient.get("https://sg-app-4f104.firebaseio.com/userdata.json")
             .subscribe(users=>console.log(users));
+    }
+
+    //API Hit with Token
+    getDataFromAPIwithToken(){
+        // this.httpClient.get("https://sg-app-4f104.firebaseio.com/userdata.json?auth="+this.authService.getToken())
+        this.httpClient.get("https://sg-app-4f104.firebaseio.com/userdata.json")    
+        .subscribe(data => {
+                console.log(data);
+            });
     }
 }
 

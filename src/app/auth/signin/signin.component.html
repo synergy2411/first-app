@@ -1,7 +1,6 @@
 <div class="jumbotron text-center">
 <form class="form-horizontal" 
-  #f = "ngForm" 
-  (ngSubmit)="signIn(f)">
+  #f = "ngForm" >
   <h1> Login </h1>
   <div class="form-group">
     <label for="username">Username : </label>
@@ -20,9 +19,11 @@
       ngModel
       required>
   </div>
-  <button type="submit" 
+  <button type="button" (click)="signIn(f)" 
     class="btn btn-success btn-lg"
     [disabled]="!f.valid">Login</button>
+  <button class="btn btn-default btn-lg" type="button"
+    (click)="getData()">Get Api Data</button>
 
   <!-- Form State : {{ f.valid }} -->
 

@@ -59,11 +59,13 @@ export class UserComponent
         this.dataService.getHttpUserData()
             .subscribe(
                 (users)=>{
-                console.log(users);
+                //console.log(users);
                 this.users = users;
                 },
                 (err)=>console.log(err),
-                ()=>console.log("FINISHED!")
+                ()=>{
+                    //console.log("FINISHED!")
+                }
         );
     }
 
